@@ -13,13 +13,15 @@ namespace adonet.ConsoleApp2
         private readonly SqlConnectionStringBuilder sb;
         public AdoDotNetService()
         {
-            sb = new SqlConnectionStringBuilder();
-            sb.DataSource = "LAPTOP-OI6UJSEI"; //server name
-            sb.InitialCatalog = "JuneC#"; //database name
-            /*sb.UserID = "sa"; 
-            sb.Password = "sasa@12";*/
-            sb.IntegratedSecurity = true;
-            sb.TrustServerCertificate = true;
+            sb = new SqlConnectionStringBuilder
+            {
+                DataSource = "LAPTOP-OI6UJSEI", //server name
+                InitialCatalog = "JuneC#", //database name
+                /*sb.UserID = "sa"; 
+                sb.Password = "sasa@12";*/
+                IntegratedSecurity = true,
+                TrustServerCertificate = true
+            };
         }
         public void Read() 
         {
