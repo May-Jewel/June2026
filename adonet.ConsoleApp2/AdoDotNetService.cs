@@ -10,16 +10,19 @@ namespace adonet.ConsoleApp2
 {
     internal class AdoDotNetService
     {
-        public void Read() 
+        private readonly SqlConnectionStringBuilder sb;
+        public AdoDotNetService()
         {
-            SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder();
+            sb = new SqlConnectionStringBuilder();
             sb.DataSource = "LAPTOP-OI6UJSEI"; //server name
             sb.InitialCatalog = "JuneC#"; //database name
             /*sb.UserID = "sa"; 
             sb.Password = "sasa@12";*/
             sb.IntegratedSecurity = true;
             sb.TrustServerCertificate = true;
-
+        }
+        public void Read() 
+        {
             Console.WriteLine($"connection string:{sb.ConnectionString}");
             SqlConnection connection = new SqlConnection(sb.ConnectionString);
             Console.WriteLine("Opening...");
@@ -60,11 +63,11 @@ namespace adonet.ConsoleApp2
 
         public void Create()
         {
-            SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder();
+            /*SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder();
             sb.DataSource = "LAPTOP-OI6UJSEI"; //server name
             sb.InitialCatalog = "JuneC#"; //database name
             sb.IntegratedSecurity = true;
-            sb.TrustServerCertificate = true;
+            sb.TrustServerCertificate = true;*/
 
             SqlConnection connection = new SqlConnection(sb.ConnectionString);
             connection.Open();
@@ -85,12 +88,6 @@ VALUES
 
         public void Update()
         {
-            SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder();
-            sb.DataSource = "LAPTOP-OI6UJSEI"; //server name
-            sb.InitialCatalog = "JuneC#"; //database name
-            sb.IntegratedSecurity = true;
-            sb.TrustServerCertificate = true;
-
             SqlConnection connection = new SqlConnection(sb.ConnectionString);
             connection.Open();
 
@@ -106,12 +103,7 @@ WHERE [StuId] = 1;";
 
         public void Delete()
         {
-            SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder();
-            sb.DataSource = "LAPTOP-OI6UJSEI"; //server name
-            sb.InitialCatalog = "JuneC#"; //database name
-            sb.IntegratedSecurity = true;
-            sb.TrustServerCertificate = true;
-
+            
             SqlConnection connection = new SqlConnection(sb.ConnectionString);
             connection.Open();
 
